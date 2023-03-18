@@ -50,12 +50,6 @@ function RegistrationScreen({ navigation }) {
     setPassword("");
   };
 
-  // const onLayoutRootView = useCallback(async () => {
-  //   if (fontsLoaded) {
-  //     await SplashScreen.hideAsync();
-  //   }
-  // }, [fontsLoaded]);
-
   if (!fontsLoaded) {
     return null;
   }
