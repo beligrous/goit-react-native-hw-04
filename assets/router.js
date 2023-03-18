@@ -5,7 +5,12 @@ import CreatePostsScreen from "../Screens/Main/CreatePostsScreen";
 import ProfileScreen from "../Screens/Main/ProfileScreen";
 import LoginScreen from "../Screens/LoginScreen/LoginScreen";
 import RegistrationScreen from "../Screens/RegistrationScreen/RegistrationScreen";
-import { AntDesign, Feather } from "@expo/vector-icons";
+import {
+  AntDesign,
+  Feather,
+  Ionicons,
+  MaterialIcons,
+} from "@expo/vector-icons";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const router = (isAuth) => {
@@ -28,27 +33,36 @@ const router = (isAuth) => {
     <Tab.Navigator screenOptions={{ tabBarShowLabel: false }}>
       <Tab.Screen
         options={{
-          tabBarIcon: ({ focused, size, color }) => (
+          tabBarIcon: ({ size, color }) => (
             <AntDesign name="appstore-o" size={size} color={color} />
           ),
+          headerTitleAlign: "center",
+          headerLeft: ({ color }) => (
+            <Ionicons name="arrow-back" size={28} color={color} />
+          ),
+          headerRight: ({ color }) => (
+            <MaterialIcons name="logout" size={24} color={color} />
+          ),
         }}
-        name="Home"
+        name="Публікації"
         component={HomeScreen}
       />
       <Tab.Screen
         options={{
-          tabBarIcon: ({ focused, size, color }) => (
-            <Feather name="plus" size={24} color="black" />
+          tabBarIcon: ({ size, color }) => (
+            <Feather name="plus" size={size} color={color} />
           ),
+          headerTitleAlign: "center",
         }}
-        name="CreatePostsScreen"
+        name="Створити публікацію"
         component={CreatePostsScreen}
       />
       <Tab.Screen
         options={{
-          tabBarIcon: ({ focused, size, color }) => (
+          tabBarIcon: ({ size, color }) => (
             <Feather name="user" size={size} color={color} />
           ),
+          headerShown: false,
         }}
         name="Profile"
         component={ProfileScreen}
