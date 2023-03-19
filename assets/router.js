@@ -13,6 +13,7 @@ import {
 } from "@expo/vector-icons";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+
 const router = (isAuth) => {
   const authpath = (
     <Stack.Navigator initialRouteName="Login">

@@ -1,9 +1,11 @@
 import { Text, View, StyleSheet } from "react-native";
+import PostsScreen from "./PostsScreen";
 
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Text>HomeScreen</Text>
+      <PostsScreen />
     </View>
   );
 };

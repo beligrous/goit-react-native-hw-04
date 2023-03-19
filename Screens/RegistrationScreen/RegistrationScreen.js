@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, createContext } from "react";
 import {
   View,
   Text,
@@ -17,6 +17,8 @@ import { useFonts } from "expo-font";
 
 // SplashScreen.preventAutoHideAsync();
 
+let data = null;
+
 function RegistrationScreen({ navigation }) {
   const [isKeyboard, setIsKeyboard] = useState(false);
   const [isLoginActive, setIsLoginActive] = useState(false);
@@ -25,6 +27,7 @@ function RegistrationScreen({ navigation }) {
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   // const [dimensions, setDimensions] = useState(
   //   Dimensions.get("window").width - 16 * 2
   // );
@@ -44,7 +47,7 @@ function RegistrationScreen({ navigation }) {
   // }, []);
 
   const formSubmit = () => {
-    console.log({ email, login, password });
+    data = { login, email, password };
     setEmail("");
     setLogin("");
     setPassword("");
@@ -140,6 +143,7 @@ function RegistrationScreen({ navigation }) {
 }
 
 export default RegistrationScreen;
+export const userContext = createContext(data);
 
 const styles = StyleSheet.create({
   image: {
